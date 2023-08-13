@@ -1,23 +1,41 @@
 <h1>Books</h1>
 
+
 <% @books.each do |book| %>
 
+ <div>
   <p>Title</p>
 
   <span><%= book.title %></span>
   
+  </div>
+  
+  <div>
   <p>Body</p>
   
   <span><%= book.body %></span>
   
+  </div>
+  <div>
   <span>
     <%= link_to book.title, book_path(book.id) %>
   </span>
-
+ </div>
 <% end %>
 
 
   <h1>New book</h1>
+  
+  <% if @book.errors.any? %>
+  
+  <%= @book.errors.count %> error has occurred
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 
 <%= form_with model: @book, url: '/books', method: :post do |f| %>
 
