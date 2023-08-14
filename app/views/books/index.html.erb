@@ -3,31 +3,30 @@
 
 <% @books.each do |book| %>
 
- <div>
-  <p>Title</p>
+ <table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th colspan="3"></th>
 
-  <span><%= book.title %></span>
-  
-  </div>
-  
-  <div>
-  <p>Body</p>
-  
-  <span><%= book.body %></span>
-  
-  </div>
-  <div>
+ </tr>
+<a href="/books">start</a>
+<a href="/books">start</a>
+<a href="/books">start</a>
+ <tr>
   <span>
     <%= link_to book.title, book_path(book.id) %>
   </span>
- </div>
-<% end %>
-
+  </tr>
+  
+  <% end %>
+  
+</table>
 
   <h1>New book</h1>
-  
+
   <% if @book.errors.any? %>
-  
+
   <%= @book.errors.count %> error has occurred
   <ul>
     <% @book.errors.full_messages.each do |message| %>
